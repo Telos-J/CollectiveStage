@@ -17,14 +17,14 @@ start.addEventListener('click', () => {
     video1.play()
     video2.currentTime = 10.366666
     video2.play()
-    video3.currentTime = 1.166666
+    video3.currentTime = 1.144444
     video3.play()
-    video4.currentTime = 0.333333
+    video4.currentTime = 0.266666
     video4.play()
 })
 
 change.addEventListener('click', () => {
-    video4.style.opacity = video4.muted ? 1 : 0  
-    video4.muted = video4.muted ? false : true    
+    video3.style.opacity = video3.muted ? 1 : 0  
+    video3.muted = video3.muted ? false : true    
     video1.muted = video1.muted ? false : true
 })
