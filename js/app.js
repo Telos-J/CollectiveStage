@@ -9,7 +9,7 @@ video1.addEventListener('canplaythrough', () => {
 
 start.addEventListener('click', () => {
     video1.muted = false
-    video1.volume = 0.1
+    //video1.volume = 0.1
     video1.currentTime = 10.366666
     video1.style.opacity = 1
     video1.play()
@@ -18,5 +18,7 @@ start.addEventListener('click', () => {
 })
 
 change.addEventListener('click', () => {
-    video2.style.opacity = parseInt(video2.style.opacity) ? 0 : 1      
+    video2.style.opacity = video2.muted ? 1 : 0  
+    video2.muted = video2.muted ? false : true    
+    video1.muted = video1.muted ? false : true
 })
