@@ -1,9 +1,26 @@
+body {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.video-container {
+    display: flex;
+    width: 100%;
+    //transform: translate(-25%);
+}
+
 video {
-    position: absolute;
-    top: 0;
-    left: 0;
+    width: 25%;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+video.selected {
     width: 50%;
-    opacity: 0;
+    opacity: 1;
 }
 
 #start {
