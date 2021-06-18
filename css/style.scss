@@ -4,20 +4,24 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    background: linear-gradient(180deg, #18259F 0%, #FA6715 106.57%);
 }
 
 .video-container {
     display: flex;
     width: 100%;
+    align-items:center;
     transform: translateX(25%);
     transition: transform 0.5s ease-in-out;
 }
 
 video {
     width: 25%;
-    opacity: 0.5;
+    height:25%;
     cursor: pointer;
+    opacity: 0.5;
     transition: all 0.5s;
+    //-webkit-box-reflect: below 0 linear-gradient(transparent, white);
 }
 
 video.selected {
@@ -27,12 +31,9 @@ video.selected {
 
 #start {
     position: absolute;
-    top: 50vh;
-    right: 0;
-}
-
-#change {
-    position: absolute;
-    top: 60vh;
-    right: 0;      
+    left: 30px;
+    bottom: 30px;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
 }
