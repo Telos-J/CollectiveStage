@@ -6,7 +6,8 @@ let currentVideo = video1
 
 start.addEventListener('click', () => {
     video1.muted = false
-
+    start.classList.add('rotating')
+    
     for (const video of videos) {
         video.currentTime = video.dataset.starttime
         video.volume = 0.1
