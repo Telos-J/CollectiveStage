@@ -14,6 +14,10 @@ playButton.addEventListener('click', () => {
     }
 })
 
+setTimeout(() => {
+    window.scrollTo(0, 0)
+}, 100)
+
 for (let idx in videos) {
     const video = videos[idx]
     video.addEventListener('click', () => {
