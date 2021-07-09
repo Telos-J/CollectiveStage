@@ -30,17 +30,45 @@ video.selected {
     opacity: 1;
 }
 
-#play-button {
+#player-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: absolute;
-    left: 30px;
-    bottom: 30px;
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-}
+    bottom: 0;
+    width: 100vw;
+    height: 6rem;
 
-#play-button.rotating {
-    animation: rotating 2s linear infinite;
+
+    #play-button {
+        width: 4rem;
+        height: 4rem;
+        margin: 1rem;
+        cursor: pointer;
+
+        .rotating {
+            animation: rotating 2s linear infinite;
+        }
+    }
+
+    #text {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 2rem;
+        line-height: 6rem;
+        color: #FFFFFF;
+    }
+
+    #minimize, #maximize {
+        width: 2rem;
+        height: 2rem;
+        margin: 2rem;
+
+        &.selected {
+            display: none;
+        }
+    }
 }
 
 @keyframes rotating {
@@ -50,4 +78,4 @@ video.selected {
     to {
         transform: rotate(0deg);
     }
- }
+}
