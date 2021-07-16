@@ -1,16 +1,24 @@
 const videos = Array.from(document.querySelectorAll('video'))
 const videoContainer = document.querySelector('.video-container')
 const playButton = document.querySelector('#play-button')
-let currentVideo = video1
 
 playButton.addEventListener('click', () => {
+    const video = document.querySelector('video.selected')
     video1.muted = false
     playButton.classList.add('rotating')
 
-    for (const video of videos) {
-        video.currentTime = video.dataset.starttime
-        video.volume = 0.1
-        video.play()
+    if (video.paused) {
+        for (const video of videos) {
+            if (video.currentTime < video.dataset.starttime) 
+                video.currentTime = video.dataset.starttime
+            video.volume = 0.1
+            video.play()
+        }
+    } else {
+        for (const video of videos) {
+            video.pause()
+            playButton.classList.remove('rotating')
+        }
     }
 })
 

@@ -46,18 +46,28 @@ video.selected {
         margin: 1rem;
         cursor: pointer;
 
-        .rotating {
+        &.rotating {
             animation: rotating 2s linear infinite;
         }
     }
 
-    #text {
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 2rem;
-        line-height: 6rem;
-        color: #FFFFFF;
+    #text-container {
+        height: 6rem;
+        overflow: hidden;
+        align-items: center;
+        
+        #text {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 2rem;
+            line-height: 6rem;
+            color: #FFFFFF;
+
+        &::selection {
+            background: #ffc2c6; 
+            }
+        }
     }
 
     #minimize, #maximize {
