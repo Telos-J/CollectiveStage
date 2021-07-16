@@ -9,7 +9,7 @@ playButton.addEventListener('click', () => {
 
     if (video.paused) {
         for (const video of videos) {
-            if (video.currentTime < video.dataset.starttime) 
+            if (video.currentTime < video.dataset.starttime)
                 video.currentTime = video.dataset.starttime
             video.volume = 0.1
             video.play()
@@ -36,18 +36,28 @@ for (let idx in videos) {
         text.innerHTML = video.dataset.title
         video.muted = false
         videoContainer.style.transform = `translateX(${idx * -25 + 25}%)`
+        resetText()
+        moveText()
     })
 }
 
 const textContainer = document.querySelector('#text-container')
-const text  = document.querySelector('#text')
+const text = document.querySelector('#text')
 
-const time = Math.floor((text.clientWidth - textContainer.clientWidth) / 50)
-text.style.transition = `transform ${time}s linear`
-text.style.transform = `translateX(${textContainer.clientWidth - text.clientWidth}px)`
-text.addEventListener('transitionend', () => {
-    if (text.style.transform  === 'translateX(0px)')
+function resetText() {
+    text.style.transition = ``
+    text.style.transform = `translateX(0px)`
+}
+
+function moveText() {
+    const time = Math.floor((text.clientWidth - textContainer.clientWidth) / 50)
+    text.style.transition = `transform ${time}s linear`
     text.style.transform = `translateX(${textContainer.clientWidth - text.clientWidth}px)`
-    else
-        text.style.transform = 'translateX(0px)'
-})
+
+    text.addEventListener('transitionend', () => {
+        if (text.style.transform === 'translateX(0px)')
+            text.style.transform = `translateX(${textContainer.clientWidth - text.clientWidth}px)`
+        else
+            text.style.transform = 'translateX(0px)'
+    })
+}
