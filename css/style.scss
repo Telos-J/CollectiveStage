@@ -20,9 +20,10 @@ video {
     height:25%;
     cursor: pointer;
     opacity: 0.5;
-    transition: all 0.5s;
+    transition: all 0.5s ease-in-out;
     flex-shrink: 0;
     //-webkit-box-reflect: below 0 linear-gradient(transparent, white);
+
     &.selected {
         width: 50%;
         opacity: 1;
@@ -102,12 +103,12 @@ video {
 @media (max-width: 767px) {
     #player-container {
         #play-button {
-        width: 10rem;
-    }
+            width: 10rem;
+        }
 
-    #maximize {
-        width: 8rem;
-        margin: 1rem;
+        #maximize {
+            width: 8rem;
+            margin: 1rem;
         }
     }
 }
