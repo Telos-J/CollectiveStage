@@ -57,6 +57,8 @@ video.selected {
         align-items: center;
         
         #text {
+            width: fit-content;
+            white-space: nowrap;
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
@@ -64,8 +66,8 @@ video.selected {
             line-height: 6rem;
             color: #FFFFFF;
 
-        &::selection {
-            background: #ffc2c6; 
+            &::selection {
+                background: #ffc2c6; 
             }
         }
     }
@@ -87,5 +89,18 @@ video.selected {
     }
     to {
         transform: rotate(0deg);
+    }
+}
+
+@media (max-width: 767px) {
+    #player-container {
+        #play-button {
+        width: 10rem;
+    }
+
+    #maximize {
+        width: 8rem;
+        margin: 1rem;
+        }
     }
 }

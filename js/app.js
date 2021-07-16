@@ -33,7 +33,21 @@ for (let idx in videos) {
         prevVideo.classList.remove('selected')
         prevVideo.muted = true
         video.classList.add('selected')
+        text.innerHTML = video.dataset.title
         video.muted = false
         videoContainer.style.transform = `translateX(${idx * -25 + 25}%)`
     })
 }
+
+const textContainer = document.querySelector('#text-container')
+const text  = document.querySelector('#text')
+
+const time = Math.floor((text.clientWidth - textContainer.clientWidth) / 50)
+text.style.transition = `transform ${time}s linear`
+text.style.transform = `translateX(${textContainer.clientWidth - text.clientWidth}px)`
+text.addEventListener('transitionend', () => {
+    if (text.style.transform  === 'translateX(0px)')
+    text.style.transform = `translateX(${textContainer.clientWidth - text.clientWidth}px)`
+    else
+        text.style.transform = 'translateX(0px)'
+})
