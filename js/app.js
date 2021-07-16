@@ -61,3 +61,31 @@ function moveText() {
             text.style.transform = 'translateX(0px)'
     })
 }
+
+const maximize = document.querySelector(`#maximize`)
+const minimize = document.querySelector(`#minimize`)
+
+maximize.addEventListener('click', () => {
+    maximize.style.display = 'none'
+    minimize.style.display = 'block'
+    const video = document.querySelector('video.selected')
+    video.classList.add('maximized')
+    videoContainer.style.transform = `translateX(0%)`
+
+    for (let otherVideo of videos) {
+        if (video !== otherVideo) otherVideo.style.display = 'none'
+    }
+})
+
+minimize.addEventListener('click', () => {
+    minimize.style.display = 'none'
+    maximize.style.display = 'block'
+    const video = document.querySelector('video.selected')
+    video.classList.remove('maximized')
+
+    for (let idx in videos) {
+        const otherVideo = videos[idx]
+        if (video !== otherVideo) otherVideo.style.display = 'block'
+        else videoContainer.style.transform = `translateX(${idx*-25+25}%)`
+        }
+})

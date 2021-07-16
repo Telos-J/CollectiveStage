@@ -23,12 +23,18 @@ video {
     transition: all 0.5s;
     flex-shrink: 0;
     //-webkit-box-reflect: below 0 linear-gradient(transparent, white);
+    &.selected {
+        width: 50%;
+        opacity: 1;
+    }
+
+    &.maximized {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+    }
 }
 
-video.selected {
-    width: 50%;
-    opacity: 1;
-}
 
 #player-container {
     display: flex;
@@ -76,6 +82,7 @@ video.selected {
         width: 2rem;
         height: 2rem;
         margin: 2rem;
+        cursor: pointer;
 
         &.selected {
             display: none;
