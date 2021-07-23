@@ -59,6 +59,7 @@ video {
     }
 
     #text-container {
+        display: flex;
         height: 6rem;
         overflow: hidden;
         align-items: center;
@@ -70,7 +71,6 @@ video {
             font-style: normal;
             font-weight: normal;
             font-size: 2rem;
-            line-height: 6rem;
             color: #FFFFFF;
 
             &::selection {
