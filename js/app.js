@@ -35,9 +35,16 @@ for (let idx in videos) {
         video.classList.add('selected')
         text.innerHTML = video.dataset.title
         video.muted = false
-        videoContainer.style.transform = `translateX(${idx * -25 + 25}%)`
-        resetText()
-        moveText()
+        if (getComputedStyle(maximize).display==='block')
+            videoContainer.style.transform = `translateX(${idx * -25 + 25}%)`
+        else
+            videoContainer.style.transform = `translateX(${idx * -25}%)`
+            if (prevVideo.classList.contains('maximized')) {
+                prevVideo.classList.remove('maximized')
+                video.classList.add('maximized')
+            }        
+            resetText()
+            moveText()
     })
 }
 
@@ -81,4 +88,21 @@ minimize.addEventListener('click', () => {
     minimize.style.display = 'none'
     video.classList.remove('maximized')
     videoContainer.style.transform = `translateX(${idx * -25 + 25}%)`
+})
+
+const leftArrow = document.querySelector('#left-arrow')
+const rightArrow = document.querySelector('#right-arrow')
+
+leftArrow.addEventListener('click',() => {
+    const video = document.querySelector('video.selected')
+    let prevVideoIndex = videos.indexOf (video) -1
+    if (prevVideoIndex < 0) prevVideoIndex = videos.length - 1
+    videos[prevVideoIndex].click() 
+})
+
+rightArrow.addEventListener('click',() => {
+    const video = document.querySelector('video.selected')
+    let nextVideoIndex = videos.indexOf (video) + 1
+    if (nextVideoIndex >= videos.length) nextVideoIndex = 0
+    videos[nextVideoIndex].click() 
 })

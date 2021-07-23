@@ -23,7 +23,7 @@ video {
     width: 25%;
     height:25%;
     cursor: pointer;
-    opacity: 0.2;
+    opacity: 1;
     transition: all 0.5s ease-in-out;
     flex-shrink: 0;
     //-webkit-box-reflect: below 0 linear-gradient(transparent, white);
@@ -93,6 +93,21 @@ video {
             display: none;
         }
     }
+}
+
+#left-arrow, #right-arrow {
+    z-index: 20;
+    position: absolute;
+    width: 4rem;
+    cursor: pointer;
+}
+
+#right-arrow {
+    right: 1rem;
+}
+
+#left-arrow {
+    left: 1rem;
 }
 
 @keyframes rotating {
