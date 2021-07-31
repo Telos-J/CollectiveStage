@@ -38,11 +38,7 @@ for (let idx in videos) {
         if (getComputedStyle(maximize).display === 'block')
             videoContainer.style.transform = `translateX(${idx * -25 + 25}%)`
         else
-            videoContainer.style.transform = `translateX(${idx * -25}%)`
-        if (prevVideo.classList.contains('maximized')) {
-            prevVideo.classList.remove('maximized')
-            video.classList.add('maximized')
-        }
+            videoContainer.style.transform = `translateX(${idx * -100}%)`
         resetText()
         moveText()
     })
@@ -77,8 +73,8 @@ maximize.addEventListener('click', () => {
     const idx = videos.indexOf(video)
     maximize.style.display = 'none'
     minimize.style.display = 'block'
-    video.classList.add('maximized')
-    videoContainer.style.transform = `translateX(${idx * -25}%)`
+    videoContainer.classList.add('maximized')
+    videoContainer.style.transform = `translateX(${idx * -100}%)`
 })
 
 minimize.addEventListener('click', () => {
@@ -86,7 +82,7 @@ minimize.addEventListener('click', () => {
     const idx = videos.indexOf(video)
     maximize.style.display = 'block'
     minimize.style.display = 'none'
-    video.classList.remove('maximized')
+    videoContainer.classList.remove('maximized')
     videoContainer.style.transform = `translateX(${idx * -25 + 25}%)`
 })
 
@@ -106,3 +102,24 @@ rightArrow.addEventListener('click', () => {
     if (nextVideoIndex >= videos.length) nextVideoIndex = 0
     videos[nextVideoIndex].click()
 })
+
+let mousemoveTime = Date.now()
+addEventListener('mousemove', () => {
+    mousemoveTime = Date.now()
+    leftArrow.style.transition = ''
+    rightArrow.style.transition = ''
+    playerContainer.style.transition = ''
+    document.body.classList.remove('hidden')
+})
+
+const playerContainer = document.querySelector('#player-container')
+
+setInterval(() => {
+    if(Date.now() - mousemoveTime > 3000) {
+        console.log('mouse')
+       leftArrow.style.transition = 'opacity 0.5s'
+       rightArrow.style.transition = 'opacity 0.5s'
+       playerContainer.style.transition = 'opacity 0.5s'
+       document.body.classList.add('hidden')
+    }
+}  , 100)

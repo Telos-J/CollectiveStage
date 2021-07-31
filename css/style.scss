@@ -16,7 +16,14 @@ body {
     width: 100%;
     align-items:center;
     transform: translateX(25%);
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;  
+    
+    &.maximized video{
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        cursor: default;
+    }
 }
 
 video {
@@ -32,14 +39,7 @@ video {
         width: 50%;
         opacity: 1;
     }
-
-    &.maximized {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-    }
 }
-
 
 #player-container {
     display: flex;
@@ -93,6 +93,12 @@ video {
             display: none;
         }
     }
+}
+
+body.hidden #player-container,
+body.hidden #left-arrow,
+body.hidden #right-arrow {
+    opacity: 0;
 }
 
 #left-arrow, #right-arrow {
