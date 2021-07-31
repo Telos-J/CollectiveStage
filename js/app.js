@@ -35,16 +35,16 @@ for (let idx in videos) {
         video.classList.add('selected')
         text.innerHTML = video.dataset.title
         video.muted = false
-        if (getComputedStyle(maximize).display==='block')
+        if (getComputedStyle(maximize).display === 'block')
             videoContainer.style.transform = `translateX(${idx * -25 + 25}%)`
         else
             videoContainer.style.transform = `translateX(${idx * -25}%)`
-            if (prevVideo.classList.contains('maximized')) {
-                prevVideo.classList.remove('maximized')
-                video.classList.add('maximized')
-            }        
-            resetText()
-            moveText()
+        if (prevVideo.classList.contains('maximized')) {
+            prevVideo.classList.remove('maximized')
+            video.classList.add('maximized')
+        }
+        resetText()
+        moveText()
     })
 }
 
@@ -93,16 +93,16 @@ minimize.addEventListener('click', () => {
 const leftArrow = document.querySelector('#left-arrow')
 const rightArrow = document.querySelector('#right-arrow')
 
-leftArrow.addEventListener('click',() => {
+leftArrow.addEventListener('click', () => {
     const video = document.querySelector('video.selected')
-    let prevVideoIndex = videos.indexOf (video) -1
+    let prevVideoIndex = videos.indexOf(video) - 1
     if (prevVideoIndex < 0) prevVideoIndex = videos.length - 1
-    videos[prevVideoIndex].click() 
+    videos[prevVideoIndex].click()
 })
 
-rightArrow.addEventListener('click',() => {
+rightArrow.addEventListener('click', () => {
     const video = document.querySelector('video.selected')
-    let nextVideoIndex = videos.indexOf (video) + 1
+    let nextVideoIndex = videos.indexOf(video) + 1
     if (nextVideoIndex >= videos.length) nextVideoIndex = 0
-    videos[nextVideoIndex].click() 
+    videos[nextVideoIndex].click()
 })
