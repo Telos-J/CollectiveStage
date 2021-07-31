@@ -115,8 +115,7 @@ addEventListener('mousemove', () => {
 const playerContainer = document.querySelector('#player-container')
 
 setInterval(() => {
-    if(Date.now() - mousemoveTime > 3000) {
-        console.log('mouse')
+    if(Date.now() - mousemoveTime > 3000 && getComputedStyle(maximize).display !== 'block') {
        leftArrow.style.transition = 'opacity 0.5s'
        rightArrow.style.transition = 'opacity 0.5s'
        playerContainer.style.transition = 'opacity 0.5s'
