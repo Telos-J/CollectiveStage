@@ -10,8 +10,6 @@ import librosa.display
 # Read stored audio files for comparison
 x_1, fs = librosa.load('dance1.mp3')
 x_2, fs = librosa.load('dance2.mp3')
-x_1 = x_1[:200000]
-x_2 = x_2[:200000]
 
 # fig, ax = plt.subplots(nrows=2, sharex=True)
 # librosa.display.waveplot(x_1, sr=fs, ax=ax[0])
@@ -27,14 +25,14 @@ x_2_chroma = librosa.feature.chroma_stft(y=x_2, sr=fs, tuning=0, norm=2, hop_len
 D, wp = librosa.sequence.dtw(X=x_1_chroma, Y=x_2_chroma)
 wp_s = np.asarray(wp) * hop_size / fs
 
-# fig = plt.figure(figsize=(10, 10))
-# ax = fig.add_subplot(111)
-# librosa.display.specshow(D, x_axis='time', y_axis='time', cmap='gray_r', hop_length=hop_size)
-# imax = ax.imshow(D, cmap=plt.get_cmap('gray_r'), origin='lower', interpolation='nearest', aspect='auto')
-# ax.plot(wp_s[:, 1], wp_s[:, 0], color='r')
-# plt.title('Warping Path on Acc. Cost Matrix $D$')
-# plt.colorbar()
-# plt.show()
+fig = plt.figure(figsize=(10, 10))
+ax = fig.add_subplot(111)
+librosa.display.specshow(D, x_axis='time', y_axis='time', cmap='gray_r', hop_length=hop_size)
+imax = ax.imshow(D, cmap=plt.get_cmap('gray_r'), origin='lower', interpolation='nearest', aspect='auto')
+ax.plot(wp_s[:, 1], wp_s[:, 0], color='r')
+plt.title('Warping Path on Acc. Cost Matrix $D$')
+plt.colorbar()
+plt.show()
 
 fig = plt.figure(figsize=(16, 8))
 
