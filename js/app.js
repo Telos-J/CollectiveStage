@@ -5,7 +5,7 @@ const playButton = document.querySelector('#play-button')
 playButton.addEventListener('click', () => {
     const video = document.querySelector('video.selected')
     video.muted = false
-    playButton.classList.add('rotating')
+    //playButton.classList.add('rotating')
 
     if (video.paused) {
         for (const video of videos) {
