@@ -23,6 +23,5 @@ bx.plot(data2[:100000], color='#67A0DA')
 # Display created figure
 plt.savefig('matplotlib.png')
 
-dtw_distance, wfrom fastdtw import fastdtw
 arp_path = fastdtw(data1[:100000], data2[:100000])
 print(distance)
